@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>IMG2TEXT</title>
+		<title>textdetect.io</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="static/assets/css/main.css" />
@@ -27,9 +27,11 @@
 				<!-- Intro -->
 					<section id="intro" class="wrapper style1 fullscreen fade-up">
 						<div class="inner">
-							<h1>IMG2TEXT</h1>
-							<form method=post enctype=multipart/form-data>
-								<input type=file name=file >
+							<h1>Text<span style="color: gold;">Detect</span>.io</h1>
+							<form method=post enctype=multipart/form-data name=uFileForm>
+								<label for="ufile">
+								<input type="file" name="ufile" id="ufile" style="display:none;"/>
+								Choose File</label>
 								<input type=submit value=Upload>
 							  </form>
 
@@ -37,27 +39,12 @@
 						</div>
 					</section>
 
-				<!-- One -->
-					<section id="services" class="wrapper style2 spotlights">
-						<section>
-							<a href="#" class="image"><img src="static/images/pic01.jpg" alt="" data-position="center center" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>TODO</h2>
-									<p>Description about homepage</p>
-									<ul class="actions">
-										<li><a href="generic.html" class="button">Learn more</a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
-
 
 				<!-- Two -->
 					<section id="two" class="wrapper style3 fade-up">
 						<div class="inner">
-							<h2>What we do</h2>
-							<p>Write out about services.</p>
+							<h2>Text<span style="color: gold;">Detect</span> API</h2>
+							<p>The services we provide.</p>
 							<div class="features">
 								<section>
 									<span class="icon solid major fa-code"></span>
@@ -86,6 +73,21 @@
 			<script src="static/assets/js/breakpoints.min.js"></script>
 			<script src="static/assets/js/util.js"></script>
 			<script src="static/assets/js/main.js"></script>
+			<script>
+				var selectedFile = document.getElementById('ufile');
+				function changeLabelText() {
+					var selectedFileValue = selectedFile.value; /* gets the filepath and filename from the input */
+					var fileNameStart = selectedFileValue.lastIndexOf('\\'); /* finds the end of the filepath */
+					selectedFileValue = selectedFileValue.substr(fileNameStart + 1); /* isolates the filename */
+					var selectedFileLabelText = document.querySelector('label[for="ufile"]').childNodes[2]; /* finds the label text */
+					if (selectedFileValue !== '') {
+						selectedFileLabelText.textContent = '...' + selectedFileValue.substr(selectedFileValue.length - 20); /* changes the label text */
+					}
+				}
+
+				selectedFile.addEventListener('change',changeLabelText,false);
+
+			</script>
 
 	</body>
 </html>

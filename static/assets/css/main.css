@@ -1818,8 +1818,70 @@ input, select, textarea {
 
 /* Button */
 
+
+label[for="ufile"]{
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
+	-moz-transition: border-color 0.2s ease;
+	-webkit-transition: border-color 0.2s ease;
+	-ms-transition: border-color 0.2s ease;
+	transition: border-color 0.2s ease;
+	background-color: transparent;
+	border: solid 1px !important;
+	border-color: rgba(255, 255, 255, 0.15) !important;
+	border-radius: 3em;
+	color: #ffffff !important;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 0.6em;
+	font-weight: bold;
+	height: calc(4.75em + 2px);
+	letter-spacing: 0.25em;
+	line-height: 4.75em;
+	outline: 0;
+	padding: 0 3.75em;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	white-space: nowrap;
+	}
+	label[for="ufile"]:after{
+		-moz-transform: scale(0.25);
+		-webkit-transform: scale(0.25);
+		-ms-transform: scale(0.25);
+		transform: scale(0.25);
+		pointer-events: none;
+		-moz-transition: opacity 0.2s ease, -moz-transform 0.2s ease;
+		-webkit-transition: opacity 0.2s ease, -webkit-transform 0.2s ease;
+		-ms-transition: opacity 0.2s ease, -ms-transform 0.2s ease;
+		transition: opacity 0.2s ease, transform 0.2s ease;
+		background: #ffffff;
+		border-radius: 3em;
+		content: '';
+		height: 100%;
+		left: 0;
+		opacity: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+	label[for="ufile"]:hover{
+		border-color: rgba(255, 255, 255, 0.55) !important;
+	}
+
+	label[for="ufile"]:hover:active {
+		border-color: #ffffff !important;
+	}
+	label[for="ufile"]:hover:active:after {
+		opacity: 0.1;;
+	}
+
+
+
 	input[type="submit"],
-	input[type="file"],
 	input[type="reset"],
 	input[type="button"],
 	button,
@@ -3269,7 +3331,7 @@ input, select, textarea {
 		}
 
 		.wrapper.style3 {
-			background-color: #b74e91;
+			background-color: darkslateblue;
 		}
 
 		.wrapper.style3-alt {
